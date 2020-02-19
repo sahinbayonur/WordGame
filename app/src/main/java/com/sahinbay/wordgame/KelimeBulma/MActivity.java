@@ -1,4 +1,4 @@
-package com.sahinbay.wordgame;
+package com.sahinbay.wordgame.KelimeBulma;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -15,9 +15,11 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.sahinbay.wordgame.R;
+
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity {
+public class MActivity extends AppCompatActivity {
 
     private int presCounter = 0;
     private int maxPresCounter = 4;
@@ -26,17 +28,22 @@ public class MainActivity extends AppCompatActivity {
     TextView textScreen, textQuestion, textTitle;
     Animation smallbigforth;
 
+    EditText editText;
+    LinearLayout linearLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_m);
 
         smallbigforth = AnimationUtils.loadAnimation(this, R.anim.smallbigforth);
+        editText = findViewById(R.id.editText);
+        linearLayout = findViewById(R.id.layoutParent);
 
         keys = shuffleArray(keys);
 
         for (String key : keys) {
-            addView(((LinearLayout) findViewById(R.id.layoutParent)), key, ((EditText) findViewById(R.id.editText)));
+            addView(linearLayout, key, editText);
         }
 
         maxPresCounter = 4;
@@ -57,8 +64,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void addView(LinearLayout viewParent, final String text, final EditText editText) {
         LinearLayout.LayoutParams linearLayoutParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
+                170, 170
+
+                /*LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT*/
         );
 
         linearLayoutParams.rightMargin = 30;
@@ -66,25 +75,26 @@ public class MainActivity extends AppCompatActivity {
         final TextView textView = new TextView(this);
 
         textView.setLayoutParams(linearLayoutParams);
-        textView.setBackground(this.getResources().getDrawable(R.drawable.bgpink));
+        textView.setBackground(this.getResources().getDrawable(R.drawable.hexagon_vertical));
         textView.setTextColor(this.getResources().getColor(R.color.colorPurple));
         textView.setGravity(Gravity.CENTER);
         textView.setText(text);
+        textView.setPadding(15,15,15,15);
         textView.setClickable(true);
         textView.setFocusable(true);
         textView.setTextSize(32);
 
-        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/FredokaOneRegular.ttf");
+        // Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/FredokaOneRegular.ttf");
 
         textQuestion = (TextView) findViewById(R.id.textQuestion);
         textScreen = (TextView) findViewById(R.id.textScreen);
         textTitle = (TextView) findViewById(R.id.textTitle);
 
-        textQuestion.setTypeface(typeface);
+        /*textQuestion.setTypeface(typeface);
         textScreen.setTypeface(typeface);
         textTitle.setTypeface(typeface);
         editText.setTypeface(typeface);
-        textView.setTypeface(typeface);
+        textView.setTypeface(typeface);*/
 
         textView.setOnClickListener(new View.OnClickListener() {
 
@@ -95,13 +105,13 @@ public class MainActivity extends AppCompatActivity {
                     if (presCounter == 0)
                         editText.setText("");
 
-                        editText.setText(editText.getText().toString() + text);
-                        textView.startAnimation(smallbigforth);
-                        textView.animate().alpha(0).setDuration(300);
-                        presCounter++;
+                    editText.setText(editText.getText().toString() + text);
+                    textView.startAnimation(smallbigforth);
+                    textView.animate().alpha(0).setDuration(300);
+                    presCounter++;
 
-                        if (presCounter == maxPresCounter)
-                            doValidate();
+                    if (presCounter == maxPresCounter)
+                        doValidate();
                 }
             }
         });
@@ -116,18 +126,18 @@ public class MainActivity extends AppCompatActivity {
     private void doValidate() {
         presCounter = 0;
 
-        EditText editText = findViewById(R.id.editText);
-        LinearLayout linearLayout = findViewById(R.id.layoutParent);
+        editText = findViewById(R.id.editText);
+        linearLayout = findViewById(R.id.layoutParent);
 
         if(editText.getText().toString().equals(textAnswer)) {
 //            Toast.makeText(MainActivity.this, "Correct", Toast.LENGTH_SHORT).show();
 
-            Intent a = new Intent(MainActivity.this,BossAct.class);
+            Intent a = new Intent(MActivity.this,BossAct.class);
             startActivity(a);
 
             editText.setText("");
         } else {
-            Toast.makeText(MainActivity.this, "Wrong", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MActivity.this, "Wrong", Toast.LENGTH_SHORT).show();
             editText.setText("");
         }
 

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/bgapp"
-    tools:context=".MainActivity">
+    tools:context=".KelimeBulma.MActivity">
 
     <TextView
         android:id="@+id/textScreen"

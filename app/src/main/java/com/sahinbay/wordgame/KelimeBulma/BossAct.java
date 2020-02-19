@@ -1,4 +1,4 @@
-package com.sahinbay.wordgame;
+package com.sahinbay.wordgame.KelimeBulma;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.sahinbay.wordgame.R;
 
 public class BossAct extends AppCompatActivity {
 

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="10"
+    tools:context=".KelimeOyunu.TeknolojiActivity">
+
+    <RelativeLayout
+        android:layout_weight="2.0"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" >
+
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3.0"
+        android:padding="20dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/wordquestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Soru"
+            android:gravity="center"
+            android:textSize="25sp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="horizontal" />
+
+        <TextView
+            android:id="@+id/wordhint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ipucu"
+            android:gravity="center"
+            android:layout_marginTop="80dp"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/wordinfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="kelime bilgi"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:textSize="15sp"/>
+
+    </LinearLayout>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3.0"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_sayansver"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:background="@drawable/regtangle_transparent"
+                android:padding="10dp"
+                android:text="Cevapla"
+                android:textColor="@color/colorAmber"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="40dp"
+                android:layout_height="match_parent" />
+
+            <Button
+                android:id="@+id/btn_showletter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:background="@drawable/regtangle_transparent"
+                android:padding="10dp"
+                android:text="Harf Alayım"
+                android:textColor="@color/colorAmber"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutParent"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:orientation="horizontal" >
+
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+
+</LinearLayout>
