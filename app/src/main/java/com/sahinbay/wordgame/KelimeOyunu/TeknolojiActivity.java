@@ -33,7 +33,7 @@ public class TeknolojiActivity extends AppCompatActivity {
 
     private int presCounter = 0;
     private int maxPresCounter = 4;
-    private String[] keys = {"R", "I", "B", "D", "X"};
+    private String[] keys = {"R", "I", "B", "D", "X", "M"};
     private String textAnswer = "BIRD";
     TextView textScreen, textQuestion, textTitle;
     Animation smallbigforth;
@@ -45,12 +45,13 @@ public class TeknolojiActivity extends AppCompatActivity {
     private ArrayList<ExampleItem> mExampleList;
     private RecyclerView mRecyclerView;
 
+    ArrayList<String> onur = new ArrayList<String>();
     ArrayList<String> list = new ArrayList<String>();
     ArrayList<String> acilmamislar = new ArrayList<String>();
     ArrayList<ExampleItem> ac = new ArrayList<ExampleItem>();
 
     // Kelimelerin bulunacağı diziyi olusturuyoruz
-    final String[] kelimeler = {"ONUR", "DILEK", "ARVEN", "TURKCELL"};
+    final String[] kelimeler = {"ONUR", "DILEK", "ARVEN"};
 
     // İpuçlarının bulunacağı diziyi olusturuyoruz
     final String[] ipuclari = {"Gurur, haysiyet", "Bir şeyi istemek", "Savaşçı", "Bir GSM şiketidir"};
@@ -69,29 +70,56 @@ public class TeknolojiActivity extends AppCompatActivity {
         //score = (TextView)findViewById(R.id.textView5);
         //button3 = (Button)findViewById(R.id.button3);
 
-        hello();
         smallbigforth = AnimationUtils.loadAnimation(this, R.anim.smallbigforth);
         editText = findViewById(R.id.editText);
         linearLayout = findViewById(R.id.layoutParent);
 
+        hello();
 
-        for (String key : acilmamislar) {
-           // addView(linearLayout, key, editText);
+        for (String key : onur) {
+            // addView(linearLayout, key, editText);
+            //addView(linearLayout, "", editText);
+
         }
 
         maxPresCounter = 4;
 
     }
 
-    private void addView(LinearLayout viewParent, final String text, final EditText editText) {
+    private void delView(LinearLayout viewParent, final String text, final EditText editText) {
         LinearLayout.LayoutParams linearLayoutParams = new LinearLayout.LayoutParams(
-                100, 100
+                120, 120
 
                 /*LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT*/
         );
 
-        linearLayoutParams.rightMargin = 10;
+        linearLayoutParams.rightMargin = 5;
+
+        final TextView textView = new TextView(this);
+
+        textView.setLayoutParams(linearLayoutParams);
+        textView.setBackground(this.getResources().getDrawable(R.drawable.hexagon_vertical));
+        textView.setTextColor(this.getResources().getColor(R.color.colorPurple));
+        textView.setGravity(Gravity.CENTER);
+        textView.setText(text);
+        textView.setPadding(15, 15, 15, 15);
+        textView.setClickable(true);
+        textView.setFocusable(true);
+        textView.setTextSize(16);
+
+        viewParent.removeAllViews();
+    }
+
+    private void addView(LinearLayout viewParent, final String text, final EditText editText) {
+        LinearLayout.LayoutParams linearLayoutParams = new LinearLayout.LayoutParams(
+                120, 120
+
+                /*LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT*/
+        );
+
+        linearLayoutParams.rightMargin = 5;
 
         final TextView textView = new TextView(this);
 
@@ -139,6 +167,14 @@ public class TeknolojiActivity extends AppCompatActivity {
 
     }
 
+    public void cek() {
+
+        for (String key : onur) {
+
+            addView(linearLayout, key, editText);
+        }
+    }
+
 
     public void hello() {
         //Kelime listemizdeki kelime sayısını geçmeyecek random sayı üretiyoruz
@@ -159,16 +195,24 @@ public class TeknolojiActivity extends AppCompatActivity {
         //Çöp adamın asılmasını sağlayacak fotoğrafları diziye atıyoruz
         //final int images[] = {R.drawable.sifir,R.drawable.bir,R.drawable.iki,R.drawable.uc,R.drawable.dort,R.drawable.bes,R.drawable.son};
 
-
         // Kelimedeki harf sayısı kadar "_" koyar
         final char answer[] = new char[secilen.length()];
 
         int k;
         for (k = 0; k < charArray.length; k++) {
             answer[k] = '_';
+            onur.add("");
         }
 
+        for (String key : onur) {
+            addView(linearLayout, key, editText);
+        }
+
+
         kelime.setText(answer, 0, k);
+
+
+        ipucu.setText(answer, 0, k);
 
         //İlk görünecek olan çarmıhı ekrana veriyoruz
         //resim.setImageResource(images[0]);
@@ -183,6 +227,8 @@ public class TeknolojiActivity extends AppCompatActivity {
                 int a = 0;
                 int p;
                 int k = 0;
+                delView(linearLayout, "", editText);
+                // cek();
 
                 final int rast = (int) (Math.random() * charArray.length);
 
@@ -210,17 +256,22 @@ public class TeknolojiActivity extends AppCompatActivity {
 
                 //////////
 
-
-                /////////
-
                 for (p = 0; p < charArray.length; p++) {
                     if (gelenharf[0].equals(String.valueOf(charArray[p]))) {
                         answer[p] = gelenharf[0].charAt(0);
 
+                        onur.remove(p);
+                        onur.add(p, gelenharf[0]);
+
+                        cek();
+
                         kelime.setText(String.valueOf(answer));
+                        // ipucu.setText(gelenharf[0]);
+                        ipucu.setText(String.valueOf(acilmamislar));
 
+                        Toast.makeText(getApplicationContext(), String.valueOf(onur), Toast.LENGTH_LONG).show();
 
-                        addView(linearLayout, String.valueOf(answer), editText);
+                        //addView(linearLayout, gelenharf[0], editText);
 
 
                     } else {
@@ -259,6 +310,8 @@ public class TeknolojiActivity extends AppCompatActivity {
                 // harf.setText("");
 
                 if (cevap.equals(secilen)) {
+
+                    onur.clear();
                     list.clear();
                     showLetter.setClickable(false);
                     ipucu.setText(String.valueOf(list));
@@ -270,6 +323,7 @@ public class TeknolojiActivity extends AppCompatActivity {
                             kelime.setText("Tebrikler Bildiniz!");
                             ipucu.setVisibility(View.INVISIBLE);
                             // button3.setVisibility(View.VISIBLE);
+                            delView(linearLayout, "", editText);
                             hello();
                             showLetter.setClickable(true);
                         }
