@@ -8,20 +8,20 @@
     },
     {
       "title": "B",
-      "song": "Forest.mp3",
-      "url": "https://github.com/sahinbayonur/WordGame/raw/master/app/src/main/assets/fonts/fire.mp3",
+      "song": "train.mp3",
+      "url": "https://github.com/sahinbayonur/WordGame/raw/master/app/src/main/assets/fonts/train.mp3",
       "image": "play_ic.png"
     },
     {
       "title": "C",
-      "song": "fire.mp3",
-"url": "https://github.com/sahinbayonur/WordGame/raw/master/app/src/main/assets/fonts/fire.mp3",
+      "song": "traffic.mp3",
+"url": "https://github.com/sahinbayonur/WordGame/raw/master/app/src/main/assets/fonts/traffic.mp3",
 "image": "play_ic.png"
 },
     {
       "title": "D",
-      "song": "Forest.mp3",
-"url": "https://github.com/sahinbayonur/WordGame/raw/master/app/src/main/assets/fonts/fire.mp3",
+      "song": "traffic.mp3",
+"url": "https://github.com/sahinbayonur/WordGame/raw/master/app/src/main/assets/fonts/traffic.mp3",
 "image": "play_ic.png"
 },
     {
@@ -32,8 +32,8 @@
 },
     {
       "title": "F",
-      "song": "Forest.mp3",
-"url": "https://github.com/sahinbayonur/WordGame/raw/master/app/src/main/assets/fonts/fire.mp3",
+      "song": "traffic.mp3",
+"url": "https://github.com/sahinbayonur/WordGame/raw/master/app/src/main/assets/fonts/traffic.mp3",
 "image": "play_ic.png"
 },
   ],
@@ -52,8 +52,8 @@
 },
 {
 "title": "J",
-"song": "Forest.mp3",
-"url": "https://github.com/sahinbayonur/WordGame/raw/master/app/src/main/assets/fonts/fire.mp3",
+"song": "train.mp3",
+"url": "https://github.com/sahinbayonur/WordGame/raw/master/app/src/main/assets/fonts/train.mp3",
 "image": "play_ic.png"
 },
 {
@@ -64,8 +64,8 @@
 },
 {
 "title": "L",
-"song": "Forest.mp3",
-"url": "https://github.com/sahinbayonur/WordGame/raw/master/app/src/main/assets/fonts/fire.mp3",
+"song": "train.mp3",
+"url": "https://github.com/sahinbayonur/WordGame/raw/master/app/src/main/assets/fonts/train.mp3",
 "image": "play_ic.png"
 },
 {
@@ -84,14 +84,14 @@
 },
 {
 "title": "O",
-"song": "fire.mp3",
-"url": "https://github.com/sahinbayonur/WordGame/raw/master/app/src/main/assets/fonts/fire.mp3",
+"song": "train.mp3",
+"url": "https://github.com/sahinbayonur/WordGame/raw/master/app/src/main/assets/fonts/train.mp3",
 "image": "play_ic.png"
 },
 {
 "title": "P",
-"song": "Forest.mp3",
-"url": "https://github.com/sahinbayonur/WordGame/raw/master/app/src/main/assets/fonts/fire.mp3",
+"song": "train.mp3",
+"url": "https://github.com/sahinbayonur/WordGame/raw/master/app/src/main/assets/fonts/train.mp3",
 "image": "play_ic.png"
 },
 {
@@ -102,8 +102,8 @@
 },
 {
 "title": "R",
-"song": "Forest.mp3",
-"url": "https://github.com/sahinbayonur/WordGame/raw/master/app/src/main/assets/fonts/fire.mp3",
+"song": "train.mp3",
+"url": "https://github.com/sahinbayonur/WordGame/raw/master/app/src/main/assets/fonts/train.mp3",
 "image": "play_ic.png"
 },
 {
